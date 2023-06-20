@@ -1,10 +1,13 @@
 package org.covert.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.antlr.v4.runtime.misc.NotNull;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -19,9 +22,8 @@ public class Solutions {
     private String title;
     private String description;
     private int investment;
-    @ManyToOne
-    @JoinColumn(name = "district_id")
-    private District district;
+    @ManyToMany(mappedBy = "solutions")
+    private List<District> districts;
 
     public Solutions(Type type, String title, String description, int investment) {
         this.type = type;

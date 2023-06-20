@@ -25,7 +25,6 @@ public class District {
         this.solutions = solutions;
     }
 
-    @OneToMany
-    //@JoinColumn(name = "solutions")
+    @ManyToMany
     private List<Solutions> solutions;
 }

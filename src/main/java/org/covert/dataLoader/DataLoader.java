@@ -54,46 +54,18 @@ public class DataLoader {
         //String[] row = data.split(",");
 
         var solution = List.of(
-                new Solutions(VEGETATION, "jardí Vertical", "bla bla bla bla", 5),
-                new Solutions(VEGETATION, "sostre verd", "bla bla bla bla", 3),
-                new Solutions(WATER, "aigua regenerada", "bla bla bla bla", 5)
+            new Solutions(VEGETATION, "Rain Barrels", "Install", 5),
+            new Solutions(VEGETATION, "Green Infrastructure", "Barcelona ", 3),
+            new Solutions(WATER, "Permeable Surfaces", "Promote ", 5),
+            new Solutions(VEGETATION, "Educational Campaigns", "Raise ", 5)
         );
         solutionsRepository.saveAll(solution);
-
 
         List<District> districtList = new ArrayList<>();
 
         for (int i = 0; i < rows.size(); i++) {
             var district = rows.get(i).split(",");
-            districtList.add(new District(district[0], Double.parseDouble(district[1]), solution));
+            districtRepository.save(new District(district[0], Double.parseDouble(district[1]), solution));
         }
-
-        districtRepository.saveAll(districtList);
-
-//        int i = 2;
-//
-//        while (i < row.length - 1) {
-//            String districtName = row[i];
-//            System.out.println(districtName);
-//
-//            int levelVegetation = Integer.parseInt(row[i+1]);
-//            //if (levelVegetation < 0)
-//            District district = new District(districtName, levelVegetation);
-//            districtList.add(district);
-//            i = i + 2;
-//        }
-
-//        districtRepository.saveAll(districtList);
-
-//        for(int i = 2; i < row.length; i++) {
-//
-//            String districtName = row[i];
-//            int levelVegetation = Integer.parseInt(row[i+1]);
-//            //if (levelVegetation < 0)
-//            District district = new District(districtName, levelVegetation,Solution);
-//        }
-
-
-
     }
 }
