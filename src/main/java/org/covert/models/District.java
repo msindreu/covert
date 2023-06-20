@@ -8,14 +8,12 @@ import org.antlr.v4.runtime.misc.NotNull;
 @Entity
 @Data
 @AllArgsConstructor
+@Embeddable
 public class District {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
     private int levelVegetation;
-    @Embedded
-    @NotNull
-    private Solutions title;
 
 }

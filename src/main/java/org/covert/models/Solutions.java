@@ -8,7 +8,6 @@ import org.antlr.v4.runtime.misc.NotNull;
 @Entity
 @Data
 @AllArgsConstructor
-@Embeddable
 public class Solutions {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,4 +18,9 @@ public class Solutions {
     private String title;
     private String description;
     private int investment;
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride( name = "name", column = @Column(name = "district_name")),
+    })
+    private District district;
 }
