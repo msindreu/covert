@@ -23,7 +23,7 @@ public class DistrictService {
         }
     }
 
-    public int getLevelVegetation(Long id){
+    public double getLevelVegetation(Long id){
         Optional<District> district = districtRepository.findById(id);
         if (district.isPresent()) { return district.get().getLevelVegetation();}
         else {

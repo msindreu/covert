@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/covert?serverTimezone=UTC
-    username: app_user
-    password: _Changethis8_
+    url: jdbc:mysql://localhost:3306/covert
+    username: ironhacker
+    password: 1r0nh4ck3r
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:

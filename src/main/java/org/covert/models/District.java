@@ -17,9 +17,9 @@ public class District {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private int levelVegetation;
+    private double levelVegetation;
 
-    public District(String name, int levelVegetation, List<Solutions> solutions) {
+    public District(String name, double levelVegetation, List<Solutions> solutions) {
         this.name = name;
         this.levelVegetation = levelVegetation;
         this.solutions = solutions;

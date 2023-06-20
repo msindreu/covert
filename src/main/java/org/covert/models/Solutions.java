@@ -15,11 +15,13 @@ public class Solutions {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Enumerated(EnumType.STRING)
-    @NotNull
     private Type type;
     private String title;
     private String description;
     private int investment;
+    @ManyToOne
+    @JoinColumn(name = "district_id")
+    private District district;
 
     public Solutions(Type type, String title, String description, int investment) {
         this.type = type;

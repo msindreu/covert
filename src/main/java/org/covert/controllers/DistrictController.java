@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/map/district")
+@RequestMapping("/map")
+@CrossOrigin(origins = "http://localhost:3000", methods={RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class DistrictController {
     @Autowired
     DistrictService districtService;
@@ -23,9 +24,14 @@ public class DistrictController {
         return districtService.getById(id);
     }
 
-    @GetMapping("/solutions/{id}")
+    @GetMapping("/solutions/{districtId}")
     @ResponseStatus(HttpStatus.OK)
-    public List<Solutions> getListOfSolutions(@PathVariable("id") Long id) {
+    public List<Solutions> getListOfSolutions(@PathVariable("districtId") Long id) {
         return districtService.getListOfSolutions(id);
+    }
+    @GetMapping("/nada")
+    @ResponseStatus(HttpStatus.OK)
+    public String test() {
+        return "Hola Marina";
     }
 }
