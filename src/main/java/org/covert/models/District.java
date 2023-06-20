@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.antlr.v4.runtime.misc.NotNull;
 
+import java.util.List;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -16,4 +18,14 @@ public class District {
     private Long id;
     private String name;
     private int levelVegetation;
+
+    public District(String name, int levelVegetation, List<Solutions> solutions) {
+        this.name = name;
+        this.levelVegetation = levelVegetation;
+        this.solutions = solutions;
+    }
+
+    @OneToMany
+    //@JoinColumn(name = "solutions")
+    private List<Solutions> solutions;
 }
