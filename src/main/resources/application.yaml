@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/covert?serverTimezone=UTC
+    username: app_user
+    password: _Changethis8_
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+      include-stacktrace: never
+      show-sql: true
+  profiles:
+    active: load-data
+
+  server:
+    error:
+      include-message: always
+      include-binding-errors: always
+
+
+
