@@ -26,10 +26,10 @@ import static org.covert.models.Type.WATER;
 @RequiredArgsConstructor
 @Log
 public class DataLoader {
-    @Autowired
-    DistrictRepository districtRepository;
-    @Autowired
-    SolutionsRepository solutionsRepository;
+
+    private final DistrictRepository districtRepository;
+
+    private final SolutionsRepository solutionsRepository;
     @EventListener(ApplicationReadyEvent.class)
     public void loadData() throws IOException {
         log.info("loading Data to Database..");
