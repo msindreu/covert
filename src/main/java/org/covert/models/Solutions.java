@@ -18,9 +18,7 @@ public class Solutions {
     private String title;
     private String description;
     private int investment;
-    @Embedded
-    @AttributeOverrides({
-            @AttributeOverride( name = "name", column = @Column(name = "district_name")),
-    })
+    @ManyToOne
+    @JoinColumn(name = "district_id")
     private District district;
 }
