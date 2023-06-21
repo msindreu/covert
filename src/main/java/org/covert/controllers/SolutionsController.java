@@ -25,4 +25,9 @@ public class SolutionsController {
         var what = solutionsService.findAllSolutions();
         return what;
     }
+
+    @GetMapping("/{id}")
+    public List<Solutions> getSolutionsById(@PathVariable("districtId") Long id) {
+        return solutionsService.findAllSolutions();
+    }
 }
