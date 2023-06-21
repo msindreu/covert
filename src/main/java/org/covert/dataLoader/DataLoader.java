@@ -26,10 +26,10 @@ import static org.covert.models.Type.WATER;
 @RequiredArgsConstructor
 @Log
 public class DataLoader {
-    @Autowired
-    DistrictRepository districtRepository;
-    @Autowired
-    SolutionsRepository solutionsRepository;
+
+    private final DistrictRepository districtRepository;
+
+    private final SolutionsRepository solutionsRepository;
     @EventListener(ApplicationReadyEvent.class)
     public void loadData() throws IOException {
         log.info("loading Data to Database..");
@@ -61,11 +61,21 @@ public class DataLoader {
         );
         solutionsRepository.saveAll(solution);
 
-        List<District> districtList = new ArrayList<>();
+//        List<District> districtList = new ArrayList<>();
+//
+//        for (int i = 0; i < rows.size(); i++) {
+//            var district = rows.get(i).split(",");
+//            districtList.add(new District(district[0], Double.parseDouble(district[1])));
+//        }
+//
+//        districtList = districtRepository.saveAll(districtList);
 
-        for (int i = 0; i < rows.size(); i++) {
-            var district = rows.get(i).split(",");
-            districtRepository.save(new District(district[0], Double.parseDouble(district[1]), solution));
-        }
+//        for (District district : districtList) {
+//            district.setSolutions(solution);
+//        }
+
+//        districtRepository.saveAll(districtList);
+
+        log.info("Data loading completed.");
     }
 }

@@ -1,5 +1,6 @@
 package org.covert.services;
 
+import lombok.RequiredArgsConstructor;
 import org.covert.models.District;
 import org.covert.models.Solutions;
 import org.covert.repositories.DistrictRepository;
@@ -13,9 +14,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class SolutionsService {
-    @Autowired
-    SolutionsRepository solutionsRepository;}
+    private final SolutionsRepository solutionsRepository;
+    public List<Solutions> findAllSolutions() {
+        return solutionsRepository.findAll();
+    }
+}
 //
 //    public List<Solutions> getSolutions(Long id){
 //        Optional<Solutions> solution = solutionsRepository.findById(id);

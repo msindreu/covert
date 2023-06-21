@@ -6,17 +6,12 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
+    show-sql: true
+    generate-ddl : true
     hibernate:
       ddl-auto: create-drop
-      include-stacktrace: never
-      show-sql: true
   profiles:
     active: load-data
-
-  server:
-    error:
-      include-message: always
-      include-binding-errors: always
 
 
 
