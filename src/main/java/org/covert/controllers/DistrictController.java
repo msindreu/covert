@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/map")
-//@CrossOrigin(origins = "*", methods={RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
+@CrossOrigin(origins = "*", methods={RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RequiredArgsConstructor
 public class DistrictController {
 
@@ -29,13 +29,9 @@ public class DistrictController {
     public List<Solutions> getListOfSolutions(@PathVariable("districtId") Long id) {
         return districtService.getListOfSolutions(id);
     }
-    @GetMapping("/nada")
-    @ResponseStatus(HttpStatus.OK)
-    public String test() {
-        return "Hola Marina";
-    }
 
     @GetMapping("/all")
+    @ResponseStatus(HttpStatus.OK)
     public List<District> getAllDistricts() {
         return districtService.findAllDistricts();
     }

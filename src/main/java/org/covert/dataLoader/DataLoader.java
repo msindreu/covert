@@ -51,11 +51,10 @@ public class DataLoader {
         }
         scanner.close();
 
-        //String[] row = data.split(",");
 
         var solution = List.of(
-            new Solutions(VEGETATION, "Rain Barrels", "Install", 5),
-            new Solutions(VEGETATION, "Green Infrastructure", "Barcelona ", 3),
+            new Solutions(VEGETATION, "\uD83C\uDF31 Green Infrastructure", "Install", 5),
+            new Solutions(VEGETATION, "Rain Barrels", "Barcelona ", 3),
             new Solutions(WATER, "Permeable Surfaces", "Promote ", 5),
             new Solutions(VEGETATION, "Educational Campaigns", "Raise ", 5)
         );
