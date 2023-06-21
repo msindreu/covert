@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/map")
-@CrossOrigin(origins = "http://localhost:3000", methods={RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
+//@CrossOrigin(origins = "*", methods={RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RequiredArgsConstructor
 public class DistrictController {
 
@@ -33,5 +33,10 @@ public class DistrictController {
     @ResponseStatus(HttpStatus.OK)
     public String test() {
         return "Hola Marina";
+    }
+
+    @GetMapping("/all")
+    public List<District> getAllDistricts() {
+        return districtService.findAllDistricts();
     }
 }

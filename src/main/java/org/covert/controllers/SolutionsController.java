@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/solutions")
-@CrossOrigin(origins = "http://localhost:3000", methods={RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
+@CrossOrigin(origins = "*", methods={RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 @RequiredArgsConstructor
 public class SolutionsController {
 

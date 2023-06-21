@@ -1,5 +1,6 @@
 package org.covert.services;
 
+import lombok.RequiredArgsConstructor;
 import org.covert.models.District;
 import org.covert.models.Solutions;
 import org.covert.repositories.DistrictRepository;
@@ -11,12 +12,13 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 import java.util.Optional;
 @Service
+@RequiredArgsConstructor
 public class DistrictService {
-    @Autowired
-    private DistrictRepository districtRepository;
+
+    private final DistrictRepository districtRepository;
 
     public District getById(Long id){
-        Optional<District> district= districtRepository.findById(id);
+        Optional<District> district = districtRepository.findById(id);
         if (district.isPresent()){ return district.get();}
         else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
@@ -37,5 +39,9 @@ public class DistrictService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Account not found");
         }
         return district.get().getSolutions();
+    }
+
+    public List<District> findAllDistricts() {
+        return districtRepository.findAll();
     }
 }
