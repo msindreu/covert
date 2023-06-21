@@ -26,7 +26,7 @@ public class SolutionsController {
         return what;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{districtId}")
     public List<Solutions> getSolutionsById(@PathVariable("districtId") Long id) {
         return solutionsService.findAllSolutions();
     }
